@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Create a Debian 12 LXC on a Proxmox host and run screentime-server in it.
 # Run as root ON THE PROXMOX HOST:
-#   bash -c "$(curl -fsSL https://raw.githubusercontent.com/OWNER/screentime/main/packaging/proxmox/install-lxc.sh)"
+#   bash -c "$(curl -fsSL https://raw.githubusercontent.com/r1z1/screentime/main/install-lxc.sh)"
 # That downloads the screentime-server binary from the latest release of
 # github.com/$REPO (set REPO=owner/name). Or install a binary you built
 # (glibc <= 2.36, Debian 12):
@@ -12,7 +12,7 @@
 # Re-run with an existing CTID to update the binary only.
 set -euo pipefail
 
-REPO=${REPO:-OWNER/screentime}
+REPO=${REPO:-r1z1/screentime}
 RELEASE=https://github.com/$REPO/releases/latest/download
 WORK=$(mktemp -d); trap 'rm -rf "$WORK"' EXIT
 if [ -n "${1:-}" ]; then
